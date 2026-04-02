@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  font-family: system-ui;
+  background: #f6f7fb;
+}
+
+.app {
+  padding: 20px;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* CHARTS */
+.chartBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.chart {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+/* FILTER */
+.filterBox input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* TABLE */
+.tableBox {
+  margin-top: 20px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.head {
+  font-weight: bold;
+  background: #e5e7eb;
+}
+
+.income {
+  color: green;
+}
+
+.expense {
+  color: red;
+}
+
+/* ROLE */
+.role {
+  padding: 6px;
+  border-radius: 8px;
+}
+
+/* RESPONSIVE 🔥 */
+@media (max-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .chartBox {
+    grid-template-columns: 1fr;
+  }
+
+  .row {
+    grid-template-columns: 1fr 1fr;
+    font-size: 12px;
+  }
+}
+
+.chartBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.chart:nth-child(3) {
+  grid-column: span 2;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .chartBox {
+    grid-template-columns: 1fr;
+  }
+
+  .chart:nth-child(3) {
+    grid-column: span 1;
+  }
+}
+
+
+
+
+/* 🌙 DARK MODE */
+
+.app.dark {
+  background: #111827;
+  color: #f9fafb;
+}
+
+.app.dark .card {
+  background: #1f2937;
+  color: white;
+}
+
+.app.dark .chart {
+  background: #1f2937;
+}
+
+.app.dark .row {
+  background: #1f2937;
+}
+
+.app.dark .head {
+  background: #374151;
+}
+
+.app.dark input,
+.app.dark select {
+  background: #1f2937;
+  color: white;
+  border: 1px solid #444;
+}
+
+.toggle {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: #6366f1;
+  color: white;
+}
