@@ -1,4 +1,8 @@
 # 💰 Finance Dashboard
+## 🔗 Live Demo
+
+You can view the project here:
+https://finance-dashboard-six-orpin.vercel.app/
 
 This is a simple finance dashboard project that I built to practice React and improve my frontend development skills.
 
