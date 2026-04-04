@@ -7,6 +7,7 @@ function SummaryCards({ transactions }) {
 
   const balance = income - expense;
 
+  // 3 cards
   return (
     <div className="cards">
       <div className="card">Balance: ₹{balance}</div>

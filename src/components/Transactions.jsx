@@ -27,10 +27,13 @@ function Transactions({ transactions, role, setTransactions, setEditData }) {
             <span>₹{t.amount}</span>
             <span className={t.type}>{t.type}</span>
 
+
+            {/* Admin role button functionality*/}
+            
             {role === "admin" && (
               <span>
-                <button onClick={() => setEditData(t)}>Edit</button>
-                <button onClick={() => deleteTx(t.id)}>Delete</button>
+                <button className="editBtn" onClick={() => setEditData(t)}>Edit</button>
+                <button className="deleteBtn" onClick={() => deleteTx(t.id)}> Delete</button>
               </span>
             )}
           </div>

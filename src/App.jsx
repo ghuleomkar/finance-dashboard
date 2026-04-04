@@ -1,107 +1,4 @@
-// import { useState } from "react";
-// import { transactionsData } from "./data";
-
-// import SummaryCards from "./components/SummaryCards";
-// import Charts from "./components/Charts";
-// import Transactions from "./components/Transactions";
-// import Filters from "./components/Filters";
-// import RoleSwitch from "./components/RoleSwitch";
-// import TransactionForm from "./components/TransactionForm";
-// import Insights from "./components/Insights";
-
-// import { useState } from "react";
-
-// import "./App.css";
-
-// function App() {
-//   const [transactions, setTransactions] = useState(transactionsData);
-//   const [role, setRole] = useState("viewer");
-//   const [search, setSearch] = useState("");
-
-//   // 🔥 NEW STATES
-//   const [filterType, setFilterType] = useState("all");
-//   const [sortBy, setSortBy] = useState("");
-
-//   const [editData, setEditData] = useState(null);
-
-//   // 🔥 FILTER + SEARCH + SORT LOGIC
-//   let filtered = transactions.filter((t) =>
-//     t.category.toLowerCase().includes(search.toLowerCase())
-//   );
-
-//   // Filter
-//   if (filterType !== "all") {
-//     filtered = filtered.filter((t) => t.type === filterType);
-//   }
-
-//   // Sort
-//   if (sortBy === "amount") {
-//     filtered = [...filtered].sort((a, b) => b.amount - a.amount);
-//   }
-//   if (sortBy === "date") {
-//     filtered = [...filtered].sort(
-//       (a, b) => new Date(b.date) - new Date(a.date)
-//     );
-//   }
-
-//   // CRUD
-//   const handleSave = (newTx) => {
-//     if (editData) {
-//       setTransactions(
-//         transactions.map((t) => (t.id === newTx.id ? newTx : t))
-//       );
-//     } else {
-//       setTransactions([...transactions, newTx]);
-//     }
-//     setEditData(null);
-//   };
-
-//   return (
-//     <div className="app">
-//       <header className="header">
-//         <h1>💰 Finance Dashboard</h1>
-//         <RoleSwitch role={role} setRole={setRole} />
-//       </header>
-
-//       {/* ADMIN ONLY */}
-//       {role === "admin" && (
-//         <TransactionForm
-//           onSave={handleSave}
-//           editData={editData}
-//         />
-//       )}
-
-//       <SummaryCards transactions={filtered} />
-
-//       <div className="grid">
-//         <Charts transactions={filtered} />
-
-//         <Filters
-//           search={search}
-//           setSearch={setSearch}
-//           filterType={filterType}
-//           setFilterType={setFilterType}
-//           sortBy={sortBy}
-//           setSortBy={setSortBy}
-//         />
-//       </div>
-
-//       <Insights transactions={filtered} />
-
-//       <Transactions
-//         transactions={filtered}
-//         role={role}
-//         setTransactions={setTransactions}
-//         setEditData={setEditData}
-//       />
-//     </div>
-//   );
-// }
-
-// export default App;
-
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { transactionsData } from "./data";
 
 import SummaryCards from "./components/SummaryCards";
@@ -124,9 +21,13 @@ function App() {
 
   const [editData, setEditData] = useState(null);
 
-  // 🌙 DARK MODE
+  // Dark Mode
   const [darkMode, setDarkMode] = useState(false);
 
+  // Show Hide Form
+  const [showForm, setShowForm] = useState(false);
+
+  // Filtering
   let filtered = transactions.filter((t) =>
     t.category.toLowerCase().includes(search.toLowerCase())
   );
@@ -135,6 +36,7 @@ function App() {
     filtered = filtered.filter((t) => t.type === filterType);
   }
 
+  // Sorting
   if (sortBy === "amount") {
     filtered = [...filtered].sort((a, b) => b.amount - a.amount);
   }
@@ -145,6 +47,7 @@ function App() {
     );
   }
 
+  // Save Add / Edit
   const handleSave = (newTx) => {
     if (editData) {
       setTransactions(
@@ -154,7 +57,22 @@ function App() {
       setTransactions([...transactions, newTx]);
     }
     setEditData(null);
+    setShowForm(false);
   };
+
+
+  //  Auto open form on edit
+  useEffect(() => {
+  if (editData) {
+    setShowForm(true);
+
+    setTimeout(() => {
+      document
+        .getElementById("formSection")
+        ?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }
+}, [editData]);
 
   return (
     <div className={darkMode ? "app dark" : "app"}>
@@ -170,9 +88,23 @@ function App() {
         </div>
       </header>
 
+      {/* Admin Button */}
       {role === "admin" && (
-        <TransactionForm onSave={handleSave} editData={editData} />
+        <button
+          className="toggle"
+          onClick={() => setShowForm(!showForm)}
+          style={{ margin: "10px 0" }}
+        >
+          {showForm ? "Close Form" : "Add Transaction"}
+        </button>
       )}
+
+      {/* Form Show/Hide */}
+      {role === "admin" && showForm && (
+     <div id="formSection">
+       <TransactionForm onSave={handleSave} editData={editData} />
+    </div>
+    )}
 
       <SummaryCards transactions={filtered} />
 

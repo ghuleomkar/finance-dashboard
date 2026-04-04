@@ -13,7 +13,8 @@ function Filters({
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-
+       
+       {/* sort table */}
       <select value={filterType} onChange={(e) => setFilterType(e.target.value)}>
         <option value="all">All</option>
         <option value="income">Income</option>

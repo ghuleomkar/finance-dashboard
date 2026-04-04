@@ -9,7 +9,7 @@ const COLORS = ["#6366f1", "#22c55e", "#f97316", "#ef4444"];
 
 function Charts({ transactions }) {
 
-  // 🔵 CATEGORY DATA (Pie)
+  // Category data (Pie)
   const categoryMap = {};
   transactions.forEach(t => {
     categoryMap[t.category] = (categoryMap[t.category] || 0) + t.amount;
@@ -20,7 +20,7 @@ function Charts({ transactions }) {
     value: categoryMap[k]
   }));
 
-  // 🟢 BAR DATA
+  //  Bar data
   const barData = [
     {
       name: "Income",
@@ -34,7 +34,7 @@ function Charts({ transactions }) {
     },
   ];
 
-  // 🔴 LINE DATA (Monthly Trend)
+  // Line data  = Monthly Trend
   const monthlyMap = {};
 
   transactions.forEach(t => {
@@ -65,7 +65,7 @@ function Charts({ transactions }) {
         </ResponsiveContainer>
       </div>
 
-      {/* BAR */}
+      {/* right Bar */}
       <div className="chart">
         <h3>Income vs Expense</h3>
         <ResponsiveContainer width="100%" height={250}>
@@ -78,7 +78,8 @@ function Charts({ transactions }) {
         </ResponsiveContainer>
       </div>
 
-      {/* 🔥 LINE CHART */}
+      {/* Line chart */}
+      
       <div className="chart">
         <h3>Monthly Trend</h3>
         <ResponsiveContainer width="100%" height={250}>
