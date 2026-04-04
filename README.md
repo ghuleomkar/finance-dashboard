@@ -1,79 +1,65 @@
 # 💰 Finance Dashboard
-## 🔗 Live Demo
 
-You can view the project here:
+## 🔗 Live Demo
 https://finance-dashboard-six-orpin.vercel.app/
 
-This is a simple finance dashboard project that I built to practice React and improve my frontend development skills.
+---
 
-The main goal of this project is to create a clean UI where users can track their income, expenses, and overall financial activity.
+## 📌 Overview
+
+This is a finance dashboard built using React that helps users track their income, expenses, and overall financial activity.
+
+The focus of this project is on building a clean UI, handling data efficiently, and improving user experience through interactive components.
 
 ---
 
 ## 🚀 Features
 
 ### 📊 Dashboard Overview
-
-* Shows total balance, income, and expenses
-* Pie chart for category-wise spending
-* Bar chart for income vs expenses
-* Line chart for monthly trends
+- Displays total balance, income, and expenses
+- Category-wise breakdown using Pie Chart
+- Income vs Expense comparison using Bar Chart
+- Monthly trends using Line Chart
 
 ---
 
 ### 📋 Transactions
-
-* View all transactions
-* Add new transactions (Admin only)
-* Edit transactions (Admin only)
-* Delete transactions (Admin only)
+- View all transactions in a structured format
+- Add new transactions (Admin only)
+- Edit existing transactions (Admin only)
+- Delete transactions (Admin only)
 
 ---
 
 ### 🔍 Search, Filter & Sort
-
-* Search by category
-* Filter:
-
-  * All
-  * Income
-  * Expense
-* Sort by:
-
-  * Date
-  * Amount
+- Search transactions by category
+- Filter by type (All / Income / Expense)
+- Sort by date or amount
 
 ---
 
 ### 👤 Role-Based UI
-
-* Viewer:
-
-  * Can only see data
-* Admin:
-
-  * Can add, edit, and delete transactions
+- Viewer: Can only view data
+- Admin: Can add, edit, and delete transactions
 
 ---
 
 ### 💡 Insights
-
-* Shows highest spending category
+- Displays highest spending category
+- Helps understand spending patterns
 
 ---
 
 ### 🌙 Dark Mode
-
-* Light/Dark theme toggle
+- Toggle between light and dark themes
 
 ---
 
 ## 🛠️ Tech Stack
-
-* React (Vite)
-* JavaScript
-* CSS
-* Recharts
+- React (Vite)
+- JavaScript
+- CSS
+- Recharts
 
 ---
 
@@ -83,15 +69,12 @@ The main goal of this project is to create a clean UI where users can track thei
 npm install
 npm run dev
 ```
+👨‍💻 Author
+
+Omkar Ghule
 
 ---
 
 ## 📌 Note
 
-This project uses mock data and focuses only on frontend functionality.
-
----
-
-## 👨‍💻 Author
-
-Omkar Ghule
+This project uses mock data and focuses on frontend functionality.
