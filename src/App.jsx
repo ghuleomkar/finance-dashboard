@@ -27,6 +27,7 @@ function App() {
   // Show Hide Form
   const [showForm, setShowForm] = useState(false);
 
+  
   // Filtering
   let filtered = transactions.filter((t) =>
     t.category.toLowerCase().includes(search.toLowerCase())

@@ -31,6 +31,13 @@ body {
   padding-bottom: 10px;
 }
 
+ /* 1st heading */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 22px;
+  }
+}
+
 /* Role dropdown viewer button*/
 select {
   padding: 6px 10px;
