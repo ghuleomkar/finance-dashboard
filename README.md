@@ -69,7 +69,7 @@ The focus of this project is on building a clean UI, handling data efficiently, 
 npm install
 npm run dev
 ```
-👨‍💻 Author
+## 👨‍💻 Author
 
 Omkar Ghule
 
